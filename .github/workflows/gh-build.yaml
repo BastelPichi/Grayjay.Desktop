@@ -26,3 +26,10 @@ jobs:
           ls
           dotnet publish -r ios -c Release
           ls
+      - name: Zip Artifact
+        run: zip -r file.zip /Users/runner/work/Grayjay.Desktop/Grayjay.Desktop/Grayjay.Desktop.CEF/bin/Release/
+        
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4.5.0
+        with:
+          path: file.zip
