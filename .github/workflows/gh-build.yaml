@@ -8,9 +8,19 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+    
       - name: Setup dotnet
         uses: actions/setup-dotnet@v3
 
       - name: Display dotnet version
         run: dotnet --version
+
+      - name: Start build
+        run: |
+          ls
+          cd Grayjay.Desktop.CEF
+          ls
+          dotnet publish -r ios -c Release
+          ls
