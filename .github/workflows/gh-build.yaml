@@ -1,0 +1,16 @@
+name: dotnet package
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v3
+
+      - name: Display dotnet version
+        run: dotnet --version
